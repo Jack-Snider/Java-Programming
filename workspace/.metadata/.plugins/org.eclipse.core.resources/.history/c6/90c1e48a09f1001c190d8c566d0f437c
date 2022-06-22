@@ -1,0 +1,41 @@
+package kr.or.ddit.basic;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+
+class Ddit{
+	
+	
+	
+}
+
+public class VectorTest {
+
+	public static void main(String[] args) {
+
+		// 문제 1
+		/*
+		 * Ddit 클래스의 객체 10개를 만들고 그 객체들을 모두 백터에 집어 넣으시오.
+		 */
+		
+		
+		Vector v = new Vector();
+		
+		//-------------------------------------------------------------
+		/*
+		 
+		 제네릭 타입(Generic Type) ==> 클래스 내부에서 사용할 데이터의 데이터 타입을 외부에서
+		 지정하는 기법으로 객체를 선언할 때 < > 안에 그 객체의 내부에서 사용할 데이터의 타입을 정해주는 것을 말한다.
+		 이런식으로 선언하게되면 지정한 데이터 타입 이외의 다른 종류의 데이터를 저장할 수 없다. 
+		
+		  
+		 */
+		List<Integer> lst = new ArrayList();
+		
+		
+
+	}
+
+}

@@ -1,0 +1,44 @@
+package kr.or.ddit.basic;
+
+import java.util.ArrayList;
+
+public class ArrayListTest01 {
+	
+	public static void main(String[] args) {
+	
+		// ArrayList는 기본적인 사용법이 Vector와 같다.
+		
+		ArrayList list1 = new ArrayList();
+		
+		// add()메소드로 추가한다.
+		list1.add("aaa");
+		list1.add("bbb");
+		list1.add(123);
+		list1.add("k");
+		list1.add(false);
+		list1.add(123.45);
+		
+		System.out.println("size => " + list1.size());
+		System.out.println("list => " + list1.toString());
+		
+		// get() 메소드로 데이터를 꺼내온다
+		System.out.println("1번째 자료 : " + list1.get(1));
+		
+		// 데이터 끼워넣기도 같다.
+		list1.add(3, "zzz");
+		System.out.println("list => " + list1.toString());
+		
+		// 데이터 변경하기
+		String temp  = (String)list1.set(3, "yyy");
+		System.out.println("list1 => " + list1);
+		System.out.println("temp => + " + temp);
+		
+		// 삭제도 같다
+		list1.remove(3);
+		System.out.println("list1 => " + list1);
+		
+		
+		list1.remove("bbb");
+		System.out.println("list1 => " + list1);
+	}
+}

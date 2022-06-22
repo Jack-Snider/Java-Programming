@@ -1,0 +1,19 @@
+package kr.or.ddit.basic;
+
+public class StackQueueTest {
+/*	
+	
+	Stack(Last in First out)
+	
+	
+	
+	
+	Queue(First in First out)
+	
+*/	
+	public static void main(String[] args) {
+		
+	}
+	
+	
+}

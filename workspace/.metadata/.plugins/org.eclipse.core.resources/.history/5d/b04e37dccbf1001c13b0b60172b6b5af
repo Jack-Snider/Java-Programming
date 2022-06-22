@@ -1,0 +1,32 @@
+package kr.or.ddit.basic;
+
+import java.util.Stack;
+
+public class StackTest {
+	
+	public static void main(String[] args) {
+	
+		
+		
+	}
+}
+
+// 웹브라우저로 앞으로 가기, 뒤로 가기 기능 구현하기(Stack 이용)
+
+class Browser{
+	
+	private Stack<String> back; // 이전 방문 내역이 저장될 스택
+	private Stack<String> forward; // 다음 방문 내역이 저장될 스택
+	private String currentURL; // 현재 페이지
+	
+	
+	// 생성자
+	public Browser() {
+		back = new Stack<String>();
+		forward = new Stack<String>();
+		currentURL = "";
+	}
+	
+	
+	
+}

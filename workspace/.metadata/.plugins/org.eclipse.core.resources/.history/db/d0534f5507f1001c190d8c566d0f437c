@@ -1,0 +1,32 @@
+package kr.or.ddit.basic;
+
+import java.util.Vector;
+
+
+class Ddit{
+	
+	
+	
+}
+
+public class VectorTest {
+
+	public static void main(String[] args) {
+
+		
+		Ddit[] d = new Ddit[10];
+		
+		Vector v = new Vector();
+		
+		for(int i = 0; i < d.length; i++) {
+			v.add(d[i]);
+		}
+	
+		
+		System.out.println("v.size() : " + v.size());
+		
+		
+
+	}
+
+}
