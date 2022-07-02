@@ -112,7 +112,7 @@ class Horse extends Thread implements Comparable<Horse> {
 		for (int i = 1; i <= 50; i++) {
 			location = i; // 말의 현재 위치를 location에 저장
 			try {
-				Thread.sleep((int) (Math.random() * 500));
+				Thread.sleep((int) (Math.random() * 1000));
 			} catch (InterruptedException e) {}
 		}
 
@@ -171,6 +171,10 @@ class GameState extends Thread {
 //					}
 					
 				}
+				
+				// 경기 실시간으로 말이 도착한 등수를 출력함
+				// horse객체가 도착하면 rank가 정해지므로(1~10) 아직 랭크가 0이면
+				// 도착하지 않았다는 뜻이 된다. 그래서 등수가 0보다 클때만 출력을 하도록 했다.		
 				if(horses[i].getRank() > 0) {
 					System.out.print("  " + horses[i].getRank() + "등!");					
 				}
