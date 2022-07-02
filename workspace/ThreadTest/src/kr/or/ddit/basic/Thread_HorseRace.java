@@ -161,7 +161,8 @@ class GameState extends Thread {
 					// 말의 현재 위치를 찾아서 표시한다.
 					if (horses[i].getLocation() == j) {
 						System.out.print(">");
-					} else {
+					}
+					else {
 						System.out.print("-");
 					}
 					
@@ -169,6 +170,9 @@ class GameState extends Thread {
 //						System.out.println(horses[i].getRank() + "등!!");
 //					}
 					
+				}
+				if(horses[i].getRank() > 0) {
+					System.out.print("  " + horses[i].getRank() + "등!");					
 				}
 				System.out.println(); // 그 다음말이 출력되기 위한 줄바꿈
 			}
