@@ -2,12 +2,17 @@ package kr.or.ddit.basic;
 
 import java.util.Arrays;
 
-public class ThreadTest13 {
+public class Thread_HorseRace {
 
 	public static void main(String[] args) {
 
-		Horse[] horseArr = new Horse[] { new Horse("요한"), new Horse("구자"), new Horse("유리"), new Horse("유영"),
-				new Horse("은비"), new Horse("정식"), new Horse("찬솔"), new Horse("무곤"), new Horse("혜연"), new Horse("지수") };
+		Horse[] horseArr = new Horse[] { 
+				new Horse("요한"), new Horse("구자"),
+				new Horse("유리"), new Horse("유영"),
+				new Horse("은비"), new Horse("정식"),
+				new Horse("찬솔"), new Horse("무곤"),
+				new Horse("혜연"), new Horse("지수") 
+				};
 
 		GameState gs = new GameState(horseArr);
 
@@ -21,9 +26,12 @@ public class ThreadTest13 {
 		// 말들의 경주가 모두 끝날때까지 기다린다.
 		try {
 			for (Horse h : horseArr) {
-				h.join();
+				h.join(); // horse의 모든 스레드가 종료될때까지 기다린다.
 			}
-			gs.join();
+			
+			// horse의 스레드가 모두 종료된 후, 출력을 위한 GameState의 스레드 객체가 종료될때 까지 기다린다.
+			gs.join(); 
+			
 		} catch (InterruptedException e) {
 			// TODO: handle exception
 		}
