@@ -1,6 +1,6 @@
 package kr.or.ddit.basic;
 
-public class ThreadTest16 {
+public class Thread_synchronized {
 	
 	private int balance; // 잔액이 저장 될 변수
 
@@ -34,7 +34,7 @@ public class ThreadTest16 {
 	
 	public static void main(String[] args) {
 		
-		ThreadTest16 account  = new ThreadTest16();
+		Thread_synchronized account  = new Thread_synchronized();
 		account.setBalance(10000); // 잔액을 10000원으로 설정
 	
 		// 익명 구현체로 쓰레드 구현

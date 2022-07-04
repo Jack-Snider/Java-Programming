@@ -2,7 +2,7 @@ package kr.or.ddit.basic;
 
 import java.util.Arrays;
 
-public class ThreadTest13 {
+public class Thread_HorseRace {
 
 	public static void main(String[] args) {
 
@@ -26,9 +26,12 @@ public class ThreadTest13 {
 		// 말들의 경주가 모두 끝날때까지 기다린다.
 		try {
 			for (Horse h : horseArr) {
-				h.join();
+				h.join(); // horse의 모든 스레드가 종료될때까지 기다린다.
 			}
-			gs.join();
+			
+			// horse의 스레드가 모두 종료된 후, 출력을 위한 GameState의 스레드 객체가 종료될때 까지 기다린다.
+			gs.join(); 
+			
 		} catch (InterruptedException e) {
 			// TODO: handle exception
 		}
@@ -109,7 +112,7 @@ class Horse extends Thread implements Comparable<Horse> {
 		for (int i = 1; i <= 50; i++) {
 			location = i; // 말의 현재 위치를 location에 저장
 			try {
-				Thread.sleep((int) (Math.random() * 500));
+				Thread.sleep((int) (Math.random() * 1000));
 			} catch (InterruptedException e) {}
 		}
 
@@ -158,7 +161,8 @@ class GameState extends Thread {
 					// 말의 현재 위치를 찾아서 표시한다.
 					if (horses[i].getLocation() == j) {
 						System.out.print(">");
-					} else {
+					}
+					else {
 						System.out.print("-");
 					}
 					
@@ -166,6 +170,13 @@ class GameState extends Thread {
 //						System.out.println(horses[i].getRank() + "등!!");
 //					}
 					
+				}
+				
+				// 경기 실시간으로 말이 도착한 등수를 출력함
+				// horse객체가 도착하면 rank가 정해지므로(1~10) 아직 랭크가 0이면
+				// 도착하지 않았다는 뜻이 된다. 그래서 등수가 0보다 클때만 출력을 하도록 했다.		
+				if(horses[i].getRank() > 0) {
+					System.out.print("  " + horses[i].getRank() + "등!");					
 				}
 				System.out.println(); // 그 다음말이 출력되기 위한 줄바꿈
 			}
