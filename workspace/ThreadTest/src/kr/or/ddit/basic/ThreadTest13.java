@@ -6,8 +6,13 @@ public class ThreadTest13 {
 
 	public static void main(String[] args) {
 
-		Horse[] horseArr = new Horse[] { new Horse("요한"), new Horse("구자"), new Horse("유리"), new Horse("유영"),
-				new Horse("은비"), new Horse("정식"), new Horse("찬솔"), new Horse("무곤"), new Horse("혜연"), new Horse("지수") };
+		Horse[] horseArr = new Horse[] { 
+				new Horse("요한"), new Horse("구자"),
+				new Horse("유리"), new Horse("유영"),
+				new Horse("은비"), new Horse("정식"),
+				new Horse("찬솔"), new Horse("무곤"),
+				new Horse("혜연"), new Horse("지수") 
+				};
 
 		GameState gs = new GameState(horseArr);
 
