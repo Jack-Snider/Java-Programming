@@ -1,9 +1,12 @@
 applyBackground=false
 approved.defs.file.last.changed.time=1649720987000
-configurationInstallLocation=/C\:/Users/PC-04/eclipse/java-2022-03/eclipse/
+configurationInstallLocation=/D\:/B_Util/3.Eclipse/eclipse-jee-2021-09-R-win32-x86_64/eclipse/
+ct.upsell.display.after=1657067123028
 eclipse.preferences.version=1
 iconcolormode=primary
-last.download.attempt.time=1655770604149
-lastConfiguration=1655770773547
-newinstall=true
-workbench.theme=Dark Gray
+includeThemingInOomph=false
+last.download.attempt.time=1656996729380
+lastConfiguration=1656996725288
+newinstall=false
+showWelcomeDialog=false
+workbench.theme=Deep Black
