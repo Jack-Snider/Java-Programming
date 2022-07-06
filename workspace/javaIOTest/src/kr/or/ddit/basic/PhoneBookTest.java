@@ -1,8 +1,8 @@
 package kr.or.ddit.basic;
 
 import java.io.BufferedOutputStream;
-import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
@@ -80,10 +80,54 @@ public class PhoneBookTest {
 		 * 
 		 */
 		
-		File f = new File("d:/d_other/phoneData.dat");
-		if(f.exists()) {
+		String info = "";
+		String name = "";
+		String phone_num = "";
+		
+		try {
+			FileReader f = new FileReader("d:/d_other/phoneData.dat");
+			if(f != null) {
+				
+				int data;
+				while((data = f.read()) != -1) {
+					
+					if((char)data == '\n') {
+						System.out.println(info);
+						for(int i = 0; i < info.length(); i++) {
+							char tmp = info.charAt(i);
+							if((int)tmp >= 0) {
+								phone_num += String.valueOf(tmp);
+							}else {
+								name += String.valueOf(tmp);
+							}
+						}
+						
+						Phone p = new Phone(name, phone_num);
+						map.put(name, p);
+						info = "";
+						
+					}else {
+						info += String.valueOf((char)data);
+					}
+					
+				
+					
+				}
+				
+			}
 			
+			System.out.println("초기화 완료!");
+			if(map.isEmpty()) {
+				System.out.println("map is empty");
+			}
+			
+			f.close();
+			
+		} catch (IOException e) {
+			// TODO: handle exception
 		}
+		
+		
 		
 	}
 	
@@ -213,7 +257,7 @@ public class PhoneBookTest {
 		// 출력용 스트림 객체 생성
 		try {
 			FileOutputStream fout = 
-					new FileOutputStream("d:/d_other/phoneData.dat");
+					new FileOutputStream("d:/d_other/phoneData.dat",true); // true는 추가 모드로 열겠다는 뜻
 			BufferedOutputStream bout = new BufferedOutputStream(fout);
 			ObjectOutputStream oout = new ObjectOutputStream(bout);
 			
@@ -239,9 +283,7 @@ public class PhoneBookTest {
 				
 				Phone p = map.get(name);
 				
-				String tmp = 
-						"Name : " + p.getName() + " Address : " + p.getAddress() 
-						+ " Phone Number : " + p.getPhone_num() + " \n";
+				String tmp = p.getName() + " " + p.getPhone_num() + " \n";
 				
 				oout.writeObject(tmp);
 				
@@ -264,7 +306,9 @@ public class PhoneBookTest {
 
 		System.out.println("프로그램 시작");
 		PhoneBookTest pbt = new PhoneBookTest();
-
+		
+		pbt.settings();
+		
 		Scanner sc = new Scanner(System.in);
 
 		boolean isRun = true;
@@ -353,6 +397,11 @@ class Phone {
 	public Phone() {
 	}
 
+	public Phone(String name, String phone_num) {
+		this.name = name;
+		this.phone_num = phone_num;
+	}
+	
 	public Phone(String name, String address, String phone_num) {
 		this.name = name;
 		this.address = address;
