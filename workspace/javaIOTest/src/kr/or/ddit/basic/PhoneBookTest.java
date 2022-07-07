@@ -257,8 +257,8 @@ public class PhoneBookTest {
          System.out.println(name + "씨의 전화번호 정보가 없습니다.");
          return;
       }
+      
       // 해당 자료가 있으면 Phone객체를 구해온다.
-
       Phone p = phoneBookMap.get(name);
       System.out.println(name + "씨의 전화번호 정보");
       System.out.println("------------------------");
