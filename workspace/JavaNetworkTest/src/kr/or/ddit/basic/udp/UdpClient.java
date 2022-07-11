@@ -54,6 +54,9 @@ public class UdpClient {
 	            
 	         }
 	         System.out.println("통신 끝..");
+	         
+	         socket.close();
+	         
 	      } catch (Exception e) {
 	         // TODO: handle exception
 	      }
