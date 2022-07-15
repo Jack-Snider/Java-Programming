@@ -1,4 +1,4 @@
-package kr.or.ddit.controller;
+package kr.or.ddit.mvc.controller;
 
 import java.util.Scanner;
 
