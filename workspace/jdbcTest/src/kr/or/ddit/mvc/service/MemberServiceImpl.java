@@ -1,6 +1,7 @@
 package kr.or.ddit.mvc.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.ddit.mvc.dao.IMemberDao;
 import kr.or.ddit.mvc.dao.MemberDaoImpl;
@@ -10,10 +11,22 @@ public class MemberServiceImpl implements IMemberService {
 
 	private IMemberDao dao; // DAO객체가 저장될 변수 선언
 	
-	// 생성자
-	public MemberServiceImpl(){
-		dao = new MemberDaoImpl(); // DAO객체 생성
-	}
+	  private static MemberServiceImpl service;   //1번
+	   
+	   
+	   //생성자
+	   //public MemberServiceImpl () {
+	   private MemberServiceImpl () {            //2번
+	      //dao = new MemberDaoImpl();   //DAO객체 생성
+	      dao = MemberDaoImpl.getInstance();
+	   }
+	   
+	   public static MemberServiceImpl getInstance() {
+	      if(service == null) service = new MemberServiceImpl();
+	      
+	      return service;
+	   }
+	
 	
 	@Override
 	public int insertMember(MemberVO memVo) {
@@ -43,6 +56,12 @@ public class MemberServiceImpl implements IMemberService {
 	public int getMemberIdCount(String id) {
 		// TODO Auto-generated method stub
 		return dao.getMemberIdCount(id);
+	}
+
+	@Override
+	public int updateMember2(Map<String, String> paramMap) {
+		// TODO Auto-generated method stub
+		return dao.updateMember2(paramMap);
 	}
 
 }

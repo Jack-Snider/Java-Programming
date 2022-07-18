@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
-    <fullyQualifiedTypeName name="kr.or.ddit.basic.WorkObject"/>
-    <fullyQualifiedTypeName name="java.lang.InterruptedException"/>
     <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="javax.xml.bind.SchemaOutputResolver"/>
     <fullyQualifiedTypeName name="kr.or.ddit.basic.DataBox"/>
@@ -58,6 +55,9 @@
     <fullyQualifiedTypeName name="kr.or.ddit.util.DBUtil3"/>
     <fullyQualifiedTypeName name="kr.or.ddit.util.DBUtil"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
-    <fullyQualifiedTypeName name="kr.or.ddit.mvc.service.MemberServiceImpl"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.mvc.vo.MemberVO"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.mvc.controller.MemberController"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.mvc.dao.MemberDaoImpl"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.mvc.service.MemberServiceImpl"/>
 </qualifiedTypeNameHistroy>
