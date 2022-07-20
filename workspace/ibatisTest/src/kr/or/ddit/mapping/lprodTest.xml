@@ -42,7 +42,7 @@
         </update>
         
         <delete id = "deleteLprod" parameterClass = "string">
-        	DELETE FROM LPROD WHERE LPROD_GU #LPROD_GU#
+        	DELETE FROM LPROD WHERE LPROD_GU = #LPROD_GU#
         </delete>
         
         <!--
@@ -59,7 +59,7 @@
         	select * from lprod
         </select>
 
-		<select id = "getAllLprod" parameterClass  = "string">
+		<select id = "getLprod" parameterClass  = "string">
         	select * from lprod where lprod_gu = #lprod_gu#
         </select>
 

@@ -64,8 +64,9 @@
 	  -->
 	  
 	 	<sqlMap resource = "kr/or/ddit/mapping/lprodTest.xml"/>
-	 	<sqlMap resource = "kr/or/ddit/maptting/jdbcToibats.xml">
+	 	
 	 	
 	
-</sqlMap>sqlMapConfig>
+
+</sqlMapConfig>
 	
