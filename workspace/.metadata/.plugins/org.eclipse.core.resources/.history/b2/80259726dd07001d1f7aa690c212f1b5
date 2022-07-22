@@ -1,0 +1,11 @@
+package kr.or.ddit.basic;
+
+// JdbcTest프로젝트에 있는 JdbcTest05.java를 iBatis로 처리
+public class JdbcToIbatisTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

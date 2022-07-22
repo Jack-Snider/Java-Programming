@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="BankInfo">
+	<insert id="insertAccountNumber" parameterClass="bankVo">
+		insert into bankinfo values(#bank_no#, #bank_name#, #bank_user_name#, sysdate)
+	</insert>
+	
+	<delete id="deleteAccountNumber" parameterClass="String">
+		delete from bankinfo where bank_no = #bank_no#
+	</delete>
+
+	<update id="updateAccountNumber" parameterClass="bankVo">
+		update bankinfo set bank_name = #bank_name#, bank_user_name = #bank_user_name#,
+		bank_date = sysdate
+		where bank_no = #bank_no#
+	</update>
+	
+	<select id="selectAllAccountNumber" resultClass="bankVo">
+		select * from bankinfo
+	</select>
+	
+	<select id="checkAccountNumber" parameterClass="String" resultClass="int">
+		select count(bank_no) from bankinfo where bank_no = #bank_no#
+	</select>
+
+
+	<!-- 
+	Key값 정보 : 회원ID(memid), 수정할컬럼명(field), 수정할데이터(data)
+	
+	Map을 파라미터로 받아서 처리할 때 변수명 역할은 Map의 Key값으로 한다. -->
+
+
+</sqlMap>	

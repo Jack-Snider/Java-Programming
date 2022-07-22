@@ -13,157 +13,109 @@ import javax.swing.JOptionPane;
  * 
  * 5초안에 입력이 있으면 승패를 구해서 출력한다.
  * ----------------------------------------------------
- * 실행예시)      --> 5초안에 입력을 못했을 경우
- *            -- 결 과 --
+ * 실행예시)		--> 5초안에 입력을 못했을 경우
+ * 			  -- 결 과 --
  * 시간초과로 당신이 졌습니다.
  * 
- * 실행예시)      --> 5초안에 입력을 했을 경우
- *            -- 결 과 --
+ * 실행예시)		--> 5초안에 입력을 했을 경우
+ * 			  -- 결 과 --
  * 컴퓨터 : 가위
  * 사용자 : 바위
  * 결과 : 당신이 이겼습니다.
  * 
  */
 
-class TimeAttack implements Runnable {
-
-	@Override
-	public void run() {
-
-		try {
-			for (int i = 1; i <= 5; i++) {
-				Thread.sleep(1000);
-				System.out.println(i);
-			}
-		} catch (Exception e) {
-		}
-
-	}
-
-}
-
-class Input implements Runnable {
-
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-
-		String user = JOptionPane.showInputDialog("가위,바위,보 중 입력해주세요.");
-		Game.setUser(user);
-		
-	}
-
-}
-
-class Game {
-
-	static String user;
-
-	public static String getUser() {
-		return user;
-	}
-
-	public static void setUser(String user) {
-		Game.user = user;
-	}
-
-	public void start() {
-		
-		boolean playable = false; // 제시간에 입력 했는지 검사
-		
-		Thread input = new Thread(new Input()); // 사용자가 입력하는 스레드
-		Thread timeAttack = new Thread(new TimeAttack()); // 카운트하는 스레드
-
-		input.start();
-		timeAttack.start();
-
-		// 사용자가 제시간에 입력을 했는지 판단하는 로직
-		while(timeAttack.isAlive()) { // true
-			if(user != null) {
-				playable = true;
-			}
-		}
-		
-		if(playable) {
-			play();
-		}else {
-			System.out.println("시간 초과로 당신이 졌습니다.");
-		}
-		
-		
-	}
-	
-	public void play() {
-		
-		/*
-		 * 가위 : 0, 바위 : 1, 보 : 2
-		 * 
-		 */
-		String user = Game.user;
-		String computer = "";
-		boolean userWin = false;
-		boolean draw = false;
-		
-		int n = (int)(Math.random() * 2 + 1); // 0 ~ 2
-		
-		switch(n) {
-		case 0:
-			computer = "가위";
-			break;
-		case 1:
-			computer = "바위";
-			break;
-		case 2:
-			computer = "보";
-			break;
-		}
-		
-		if(user.equals("가위") && computer.equals("가위")) {
-			draw = true;
-		}else if(user.equals("가위") && computer.equals("바위")) {
-			userWin = false;
-		}else if(user.equals("가위") && computer.equals("보")) {
-			userWin = true;
-		}else if(user.equals("바위") && computer.equals("가위")) {
-			userWin = false;
-		}else if(user.equals("바위") && computer.equals("바위")) {
-			draw = true;
-		}else if(user.equals("바위") && computer.equals("보")) {
-			userWin = false;
-		}else if(user.equals("보") && computer.equals("가위")) {
-			userWin = false;
-		}else if(user.equals("보") && computer.equals("바위")) {
-			userWin = true;
-		}else if(user.equals("보") && computer.equals("보")) {
-			draw = true;
-		}
-		
-		if(userWin && !draw) {
-			System.out.println("사용자 : " + user);
-			System.out.println("컴퓨터 : " + computer);
-			System.out.println("사용자가 이겼습니다.");
-		}else if(!userWin && !draw) {
-			System.out.println("사용자 : " + user);
-			System.out.println("컴퓨터 : " + computer);
-			System.out.println("컴퓨터가 이겼습니다.");
-		}else if(draw) {
-			System.out.println("사용자 : " + user);
-			System.out.println("컴퓨터 : " + computer);
-			System.out.println("무승부입니다.");
-		}
-		
-	}
-
-}
-
 public class ThreadTest07 {
 
 	public static void main(String[] args) {
+		Thread ga1 = new TypeInput();
+		Thread ga2 = new Count();
 
-		Game g = new Game();
-		g.start();
-		
-		
+		ga1.start();
+		ga2.start();
 
+	}
+
+}
+
+class TypeInput extends Thread {
+	public static boolean inputCheck = false;
+
+	@Override
+	public void run() {
+		String str = JOptionPane.showInputDialog("가위, 바위, 보를 입력하세요.");
+		inputCheck = true;
+
+		System.out.println("입력한 값 : " + str);
+
+		int computerInput = (int) (Math.random() * 3 +1);
+		int userNum = changeUserInput(str);
+		
+		printGame(str, computerStr(computerInput), 
+				resultGame(computerInput,userNum));
+	}
+
+	int changeUserInput(String userInput) {
+		switch (userInput) {
+
+		case "가위":
+			return 1;
+		case "바위":
+			return 2;
+		case "보":
+			return 3;
+		}
+		return 0;
+	}
+
+	String computerStr(int computerInput) {
+		switch (computerInput) {
+
+		case 1:
+			return "가위";
+		case 2:
+			return "바위";
+		case 3:
+			return "보";
+		}
+		return "";
+	}
+	
+String resultGame(int computerInput, int userNum) {
+	if(userNum - computerInput == 1) {
+		return "당신이 이겼습니다.";
+	}else if(userNum - computerInput == 0) {
+		return "비겼습니다.";
+	}else if(userNum - computerInput == -2) {
+		return "당신이 이겼습니다.";
+	}else {
+		return "당신이 졌습니다.";
+	}
+}
+void printGame(String userInput, String computerInput, String gameResult) {
+	System.out.println("-- 결과 --");
+	System.out.println("컴퓨터 : "+computerInput);
+	System.out.println("사용자 : "+userInput);
+	System.out.println("승패 : " + gameResult);
+}
+
+}
+
+class Count extends Thread {
+	@Override
+	public void run() {
+		for (int i = 5; i > 0; i--) {
+			if (TypeInput.inputCheck == true) {
+				return;
+			}
+			System.out.println(i);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+
+			}
+		}
+		System.out.println("5초가 지났습니다. 당신이 졌습니다.");
+		System.exit(0);
 	}
 }

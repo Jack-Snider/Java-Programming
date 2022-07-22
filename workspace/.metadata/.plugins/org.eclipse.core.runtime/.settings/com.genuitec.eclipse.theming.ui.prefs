@@ -1,12 +1,10 @@
 applyBackground=false
 approved.defs.file.last.changed.time=1649720987000
 configurationInstallLocation=/D\:/B_Util/3.Eclipse/eclipse-jee-2021-09-R-win32-x86_64/eclipse/
-ct.upsell.display.after=1657067123028
 eclipse.preferences.version=1
 iconcolormode=primary
 includeThemingInOomph=false
-last.download.attempt.time=1658315493864
-lastConfiguration=1658315488962
-newinstall=false
-showWelcomeDialog=false
+last.download.attempt.time=1658483127975
+lastConfiguration=1658483142373
+newinstall=true
 workbench.theme=Deep Black

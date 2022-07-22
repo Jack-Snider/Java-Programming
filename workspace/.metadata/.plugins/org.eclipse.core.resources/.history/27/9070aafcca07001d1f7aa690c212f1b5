@@ -1,0 +1,12 @@
+package kr.or.ddit.basic;
+
+import java.util.Scanner;
+
+public class LprodIbatisTest {
+	// iBatis를 이용해서 DB자료를 처리하는 순서 및 방법
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+	}
+
+}
