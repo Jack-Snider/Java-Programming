@@ -1,7 +1,6 @@
 package kr.or.ddit.board.vo;
 
 public class JdbcBoardVO {
-	
 	private int board_no;
 	private String board_title;
 	private String board_writer;
@@ -45,7 +44,5 @@ public class JdbcBoardVO {
 	public void setBoard_content(String board_content) {
 		this.board_content = board_content;
 	}
-	
-	
 	
 }
