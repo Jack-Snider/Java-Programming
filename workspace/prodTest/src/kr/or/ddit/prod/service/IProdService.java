@@ -9,7 +9,4 @@ public interface IProdService {
 	
 	public List<ProdVO> selectAll();
 	
-	
-
-	
 }
