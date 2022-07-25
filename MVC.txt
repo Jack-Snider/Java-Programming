@@ -1,0 +1,23 @@
+singleton :  mvc에서는 필요한 시점에서  new serviceImpl, new daoImple 생성해서 사용했는데,
+               한번만 자기 자신 클래스 안에서 클래스객체를 생성하고 다른애가 외부에서 사용할 수 있게 get메소드만들고 이걸 사용하게함.
+               언제 어디서든 사용할 수 있게 하기위해 static으로 선언
+
+mvc(mondel2):
+      model  -  주고받는 데이터. db처리를 위한 데이터
+                   넓은 의미의 모델에는 service, dao 포함시킨다.
+      view  -   출력, 응답페이지
+      controller  -  사용자의 요청을 최초로 받아서 처리하는 부분(다오,서비스 이용해서 처리) 
+                      , controller에서는 service 이용할거니까 이 객체 필요! new 서비스
+      service  -  1. 일반 비즈니스모직. db접근이 필요없는 일반처리
+                    2. db를 필요로 하는 처리 >>> dao객체 이용할거임! new dao  (일관성위해 service거쳐서 dao)
+      dao( Data Accecess Object) - db에 접근하는 객체
+                            ibatis - SqlMapClient객체 dao에서 필요 
+
+
+ibatis : 설정( 환경) 파일 ******* sqlMapConfig.xml ******* 
+          sqlMapConfig.xml 하는일 => db연결 : dbinfo.properties
+                                          => vo파일의 ailias설정 (kr.or.ddit.mvc.vo.. 너무 기니까 별칭만드는용도)
+                                          => sql문을 가지고 있는 xml(mapper)등록 
+  
+   new DaoImpl()
+   new Service
