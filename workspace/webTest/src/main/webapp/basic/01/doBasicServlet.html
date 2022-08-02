@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<h2>Servlet 요청 연습</h2>
+		<h3>GET방식 요청1 ==> 링크 방식</h3>
+		<a href = "http://localhost/webTest/servletTest03.do">Get방식으로 여청하기1</a>
+		<hr>
+		
+		<!-- <form>태그의 method속성을 생략하거나 'get'으로 설정하면 GET방식으로 요청이 된다. -->
+		
+		<h3>GET방식 요청2 ==> form태그의 submit방식</h3>
+		<form action="http://localhost/webTest/servletTest03.do" method = "get">
+		
+			<input type="submit" value = "Get방식으로 요청하기">
+		
+		</form>
+		
+		<hr>
+		<!-- <form>태그의 method속성을 'post'로 설정하면 POST방식으로 요청된다. -->
+		<h3>POST방식 요청 ==> ofmr태그의 submit방식</h3>
+		<form action="http://localhost/webTest/servletTest03.do" method="POST">
+   			<input type="submit" value="POST방식으로 요청하기">
+		</form>
+		
+		
+			
+		
+		
+	</body>
+</html>

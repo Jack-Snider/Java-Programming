@@ -1,8 +1,0 @@
-package kr.or.ddit.bank.vo;
-
-public class BankInfoVO {
-	private String bank_no;
-	private String bank_name;
-	private String bank_user_name;
-	private String bank_date;
-}

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- iBatis 설정 문서 -->
-<!DOCTYPE sqlMapconfig
-	PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
-	"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
-<sqlMapConfig>
-	
-
-</sqlMapConfig>
