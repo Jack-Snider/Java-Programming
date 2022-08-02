@@ -17,8 +17,8 @@
 	 -->
 	<select id = "selectAll" resultClass = "kr.or.ddit.prod.vo.ProdVO">
 	
-		select * from prod
-	
+		
+		
 	</select>
 		
 
