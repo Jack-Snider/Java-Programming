@@ -17,7 +17,7 @@ public class SessionLogout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 세션응ㄹ 삭제한 후 로그인 페이지로 이동한다.
+		// 세션을 삭제한 후 로그인 페이지로 이동한다.
 		HttpSession session = request.getSession();
 		
 		session.invalidate();
